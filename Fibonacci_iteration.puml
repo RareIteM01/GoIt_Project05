@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+start
+:Check if number < 0?;
+if (yes) then (true)
+  :Throw IllegalArgumentException;
+else (no)
+  :Check if number <= 1?;
+  if (yes) then (true)
+    :Return number;
+  else (no)
+    :previous = 0;
+    :current = 1;
+    :i = 2;
+    while (i <= n) is (true)
+      :next = previous + current;
+      :previous = current;
+      :current = next;
+      :i++;
+    endwhile
+    :Return current;
+endif
+stop
+@enduml
